@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:layout_width="match_parent">
+
+    <LinearLayout
+        android:layout_margin="8dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/pokemon_image"
+            android:layout_height="100dp"
+            android:layout_width="100dp" />
+
+        <TextView
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:gravity="center"
+            android:id="@+id/pokemon_name"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            tools:text="Pikachu" />
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
