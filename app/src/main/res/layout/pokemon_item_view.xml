@@ -1,30 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     android:layout_width="match_parent">
 
     <LinearLayout
-        android:layout_margin="8dp"
         android:gravity="center"
         android:layout_gravity="center"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         android:layout_width="match_parent"
         android:orientation="vertical">
 
         <ImageView
+            android:contentDescription="@string/pokemon_image"
             android:id="@+id/pokemon_image"
             android:layout_height="100dp"
             android:layout_width="100dp" />
 
         <TextView
-            style="@style/TextAppearance.Material3.TitleLarge"
+            style="@style/TextAppearance.Material3.TitleMedium"
             android:gravity="center"
             android:id="@+id/pokemon_name"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             tools:text="Pikachu" />
+
+        <TextView
+            style="@style/TextAppearance.Material3.TitleSmall"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:text="@string/pokemon_item_view_health_label" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/health"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:max="150"
+            android:progress="60"
+            app:indicatorColor="#E91E63"
+            app:trackCornerRadius="8dp" />
+
+        <TextView
+            style="@style/TextAppearance.Material3.TitleSmall"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="@string/pokemon_item_view_defense_label" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/defense"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:max="150"
+            android:progress="60"
+            app:indicatorColor="#4CAF50"
+            app:trackCornerRadius="8dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/type_list"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginHorizontal="4dp"
+    android:layout_width="wrap_content">
+
+    <com.google.android.material.chip.Chip
+        style="@style/ShapeAppearance.Material3.SmallComponent"
+        android:id="@+id/type"
+        android:textSize="10sp"
+        tools:text="hello"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content" />
+</FrameLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/pokemonListFragment">
+
+    <fragment
+        android:id="@+id/pokemonListFragment"
+        android:label="PokemonListFragment"
+        android:name="tn.orange.demoapp.authentication.ui.PokemonListFragment"
+        tools:layout="@layout/pokemon_list_fragment">
+        <action
+            android:id="@+id/action_pokemonListFragment_to_secondFragment"
+            app:destination="@id/secondFragment" />
+        <action
+            android:id="@+id/action_pokemonListFragment_to_pokemonWikiDialog"
+            app:destination="@id/pokemonWikiDialog" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondFragment"
+        android:label="SecondFragment"
+        android:name="tn.orange.demoapp.SecondFragment"
+        tools:layout="@layout/pokemon_list_fragment">
+        <argument
+            android:name="data"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_secondFragment_to_pokemonListFragment"
+            app:destination="@id/pokemonListFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/pokemonWikiDialog"
+        android:name="tn.orange.demoapp.authentication.ui.PokemonDetailsDialog"
+        android:label="PokemonWikiDialog" />
+</navigation>

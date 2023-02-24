@@ -1,7 +1,7 @@
 package tn.orange.demoapp.authentication.domain
 
 import tn.orange.demoapp.authentication.data.RemoteService
-import tn.orange.demoapp.authentication.domain.mapper.toDomain
+import tn.orange.demoapp.authentication.domain.model.toDomain
 
 class PokemonRepository(
     private val remoteService: RemoteService

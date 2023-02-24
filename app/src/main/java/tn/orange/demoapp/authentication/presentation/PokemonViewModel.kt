@@ -9,6 +9,9 @@ import kotlinx.coroutines.launch
 import tn.orange.demoapp.R
 import tn.orange.demoapp.authentication.domain.usecase.FetchPokemonUseCase
 import tn.orange.demoapp.authentication.presentation.model.UiState
+import tn.orange.demoapp.authentication.presentation.model.UiState.Failure
+import tn.orange.demoapp.authentication.presentation.model.UiState.Loading
+import tn.orange.demoapp.authentication.presentation.model.UiState.Success
 import tn.orange.demoapp.authentication.ui.model.PokemonUiModel
 import javax.inject.Inject
 
@@ -17,23 +20,27 @@ class PokemonViewModel @Inject constructor(
     private val fetchPokemon: FetchPokemonUseCase
 ) : ViewModel() {
 
-    private var _uiState = MutableLiveData<UiState>(UiState.Loading)
+    private var _uiState = MutableLiveData<UiState>(Loading)
     val uiState: LiveData<UiState>
         get() = _uiState
 
     fun fetchPokemons() = viewModelScope.launch {
-        _uiState.value = UiState.Loading
+        _uiState.value = Loading
         try {
-            _uiState.value = UiState.Success(fetchPokemon.fetchPokemons().map {
+            _uiState.value = Success(fetchPokemon.fetchPokemons().map {
                 PokemonUiModel(
-                    it.name,
-                    it.imageUrl,
-                    it.variation,
-                    R.color.black
+                    name = it.name,
+                    imageUrl = it.imageUrl,
+                    variation = it.variation,
+                    health = it.health,
+                    defense = it.defense,
+                    colorRes = R.color.black,
+                    types = it.types,
+                    link = it.link
                 )
             })
         } catch (ex: Exception) {
-            _uiState.value = UiState.Failure("Network Fail")
+            _uiState.value = Failure("Network Fail")
         }
     }
 }

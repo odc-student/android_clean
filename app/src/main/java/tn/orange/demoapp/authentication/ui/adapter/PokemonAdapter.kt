@@ -13,17 +13,31 @@ class PokemonAdapter : ListAdapter<PokemonUiModel, PokemonAdapter.PokemonViewHol
     PokemonDiffUtils
 ) {
 
-    class PokemonViewHolder(private val binding: PokemonItemViewBinding) :
+    var onPokemonClicked: (String) -> Unit = {}
+
+    inner class PokemonViewHolder(private val binding: PokemonItemViewBinding) :
         ViewHolder(binding.root) {
 
         fun bind(pokemonUiModel: PokemonUiModel) {
             binding.pokemonName.text = pokemonUiModel.name
             binding.pokemonImage.load(pokemonUiModel.imageUrl)
+            binding.health.progress = pokemonUiModel.health
+            binding.defense.progress = pokemonUiModel.defense
+            binding.typeList.apply {
+                adapter = PokemonTypeAdapter().also {
+                    it.submitList(pokemonUiModel.types)
+                }
+            }
+
+            binding.root.setOnClickListener {
+                onPokemonClicked(pokemonUiModel.link)
+            }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewHolder {
-        val binding = PokemonItemViewBinding.inflate(LayoutInflater.from(parent.context))
+        val binding =
+            PokemonItemViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return PokemonViewHolder(binding)
     }
 

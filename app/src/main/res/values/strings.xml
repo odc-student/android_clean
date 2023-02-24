@@ -43,4 +43,8 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="pokemon_item_view_health_label">Health</string>
+    <string name="pokemon_item_view_defense_label">Defense</string>
+    <string name="go_to_top">go to top</string>
+    <string name="pokemon_image">pokemon image</string>
 </resources>
